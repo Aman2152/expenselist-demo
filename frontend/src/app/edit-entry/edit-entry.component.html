@@ -1,0 +1,66 @@
+<!-- Page Content -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 text-center" style="padding-top: 20px;">
+      <div class="container" style="padding-left: 0px; padding-right: 0px;">
+      </div>
+      <div class="container box" style="margin-top: 10px;">
+        <form [formGroup]="formData" (ngSubmit)="onClickSubmit(formData.value)" class="form" novalidate>
+          <div class="form-group">
+            <label for="_id">Id</label>
+            <input type="text" class="form-control" id="id" formControlName="id">
+            <div *ngIf="!amountValue?.valid && (amountValue?.dirty ||amountValue?.touched)">
+              <div [hidden]="!amountValue.errors.required">
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="item">Item</label>
+            <!-- <input type="number" class="form-control" id="id" formControlName="id" placeholder="Id"> -->
+            <input type="text" class="form-control" id="item" formControlName="item">
+            <div *ngIf="!itemValue?.valid && (itemValue?.dirty ||itemValue?.touched)">
+              <div [hidden]="!itemValue.errors.required">
+                Item is required
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="amount">Amount</label>
+            <input type="text" class="form-control" id="amount" formControlName="amount">
+            <div *ngIf="!amountValue?.valid && (amountValue?.dirty ||amountValue?.touched)">
+              <div [hidden]="!amountValue.errors.required">
+                Amount is required
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="category">Category</label>
+
+            <!--input type="text" class="form-control" id="category" formControlName="category"-->
+            <select class="form-control" id="category" formControlName="category">
+
+              <option>Food</option>
+              <option>Vegetables</option>
+              <option>Fruit</option>
+              <option>Electronic Item</option>
+
+              <option>Bill</option>
+              <option>Others</option>
+
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="location">Location</label>
+            <input type="text" class="form-control" id="location" formControlName="location">
+          </div>
+          <!-- <div class="form-group">
+            <label for="spendOn">Spend On</label>
+            <input type="text" class="form-control" id="spendOn" formControlName="spendOn">
+          </div> -->
+          <button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="!formData.valid">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

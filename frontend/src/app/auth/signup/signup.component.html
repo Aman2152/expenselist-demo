@@ -1,0 +1,48 @@
+<div class="row signup-form-container">
+  <div class="col-md-8" >
+    <mat-card>
+      <mat-spinner *ngIf="isLoading"></mat-spinner>
+      <form (submit)="onSignup(loginForm)" #loginForm="ngForm" *ngIf="!isLoading">
+        <mat-form-field>
+          <input matInput type="text" name="fullName" ngModel placeholder="Full name" required #fullNameInput="ngModel">
+          <mat-error *ngIf="fullNameInput.invalid">Please enter full name.</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput type="email" name="email" ngModel placeholder="Email" required email #emailInput="ngModel">
+          <mat-error *ngIf="emailInput.invalid">Please enter email.</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput type="text" name="username" ngModel placeholder="Username" required #usernameInput="ngModel">
+          <mat-error *ngIf="usernameInput.invalid">Please enter username.</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput type="text" maxlength="10" name="mobile" ngModel placeholder="Mobile Number" required
+            #mobileInput="ngModel" />
+          <mat-error *ngIf="mobileInput.invalid">Please enter password.</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput [type]="isPasswordHidden ? 'password' : 'text'" name="password" ngModel placeholder="Password"
+            required #passwordInput="ngModel" />
+          <mat-icon matSuffix area-hidden="false" (click)="togglePasswordVisibility()">{{isPasswordHidden ? 'visibility'
+            : 'visibility_off'}}</mat-icon>
+          <mat-error *ngIf="passwordInput.invalid">Please enter password.</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput [type]="isConfirmPasswordHidden ? 'password' : 'text'" name="confirmPassword" ngModel
+            placeholder="Confirm Password" required #confirmPasswordInput="ngModel" />
+          <mat-icon matSuffix area-hidden="false" (click)="toggleConfirmPasswordVisibility()">{{isConfirmPasswordHidden
+            ? 'visibility' : 'visibility_off'}}</mat-icon>
+          <mat-error *ngIf="confirmPasswordInput.invalid">Please enter password.</mat-error>
+        </mat-form-field>
+        <div>
+          <mat-checkbox name="termsAndConditions" ngModel required #termsAndConditions="ngModel">Terms and Conditions
+          </mat-checkbox>
+          <mat-error *ngIf="termsAndConditions.invalid">Please check the terms and conditions.</mat-error>
+        </div>
+        <button mat-raised-button color="primary" type="submit">Signup</button>
+      </form>
+    </mat-card>
+  </div>
+
+</div>
+

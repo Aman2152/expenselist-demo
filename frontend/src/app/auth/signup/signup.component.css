@@ -1,0 +1,13 @@
+mat-form-field {
+  width: 100%;
+}
+mat-spinner {
+  margin: auto;
+}
+mat-icon {
+  cursor: pointer;
+}
+.signup-form-container {
+  justify-content: center;
+  margin-top: 40px;
+}

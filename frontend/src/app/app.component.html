@@ -1,0 +1,50 @@
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+   <div class="container">
+      <a class="navbar-brand" href="#">{{ title }}</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+         aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+         <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+               <a class="nav-link home" href="#" routerLink="/" routerLinkActive="active"
+                  [routerLinkActiveOptions]="{exact:true}">Home
+                  <span class="sr-only">(current)</span>
+               </a>
+            </li>
+
+            <li class="nav-item" routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: true}">
+            <a class="nav-link" routerLink="/expenses">Expenses</a>
+         </li>
+
+            <li class="nav-item" *ngIf="isUserLoggedIn">
+               <p class="userEmail">{{userEmail}}</p>
+            </li>
+
+            <li class="nav-item" *ngIf="isUserLoggedIn">
+               <button class="btn btn-primary" (click)="onLogout()">Logout</button>
+            </li>
+
+            <!-- <div class="username">Username: {{userDisplayName}}</div> -->
+
+            <li class="nav-item" *ngIf="!isUserLoggedIn" routerLinkActive="active"
+               [routerLinkActiveOptions]="{exact: true}">
+               <a class="nav-link" routerLink="/login">Login</a>
+            </li>
+
+            <li class="nav-item" *ngIf="!isUserLoggedIn" routerLinkActive="active"
+               [routerLinkActiveOptions]="{exact: true}">
+               <a class="nav-link" routerLink="/signup">Signup</a>
+            </li>
+
+         </ul>
+      </div>
+   </div>
+</nav>
+
+<!--app-expense-entry></app-expense-entry-->
+<!--app-expense-entry-list> </app-expense-entry-list-->
+<router-outlet></router-outlet>
